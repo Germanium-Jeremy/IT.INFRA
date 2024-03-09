@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFR.IT</title>
+    <link rel="stylesheet" href="styles/style1.css">
+    <link rel="stylesheet" href="styles/style2.css">
+    <link rel="shortcut icon" href="images/it.jpg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script defer src="../scripts/script.js"></script>
+</head>
+<body>
+<div class="statusGain" id="addUserSuccess">
+    <h2>You have successfully Signed in</h2>
+    <img src="images/v.png">
+</div>
+<div class="statusGain" id="addUserError">
+    <h2>There were some problems signing in. Try Again!</h2>
+    <i class='bx bxs-message-rounded-x'></i>
+</div>
+    <nav>
+        <section class="logo">
+            <img src="images/it.jpg" alt="INFR.IT" title="INFR.IT" class="logo"><a href="/">INFR.IT</a>
+        </section>
+        <section class="topNav">
+            <ul class="navList">
+                <a href="otherPages/threePages/network.html" class="navItem">
+                    <span class="navText">NETWORK CONFIGURATIONS</span>
+                    <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+                </a>
+                <a href="#" class="navItem">
+                    <span class="navText">SERVER LOGS</span>
+                    <span class="navIcon"><i class='bx bx-server'></i></span>
+                </a>
+                <a href="#" class="navItem">
+                    <span class="navText">SOFTWARE aNCESS</span>
+                    <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+                </a>
+                <a class="navItem" id="toggleSearch">
+                    <span class="navText">SEARCH</span>
+                    <span class="navIcon"><i class='bx bx-search-alt-2'></i></span>
+                </a>
+            </ul>
+        </section>
+        <div class="logIn" id="toggleLogIn">
+            <span class="navText">LOGIN</span>
+            <span class="navIcon"><i class='bx bx-log-in-circle'></i></span>
+        </div>
+    </nav>
+<!-- LOGIN -->
+<section class="login">
+    <form action="../scripts/login.php" method="get" id="loginForm">
+        <h3 id="loginTitle">LOGIN TO INFR.IT</h3>
+        <div class="loginWrapper">
+            <div class="email">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email1" name="email3" autocomplete="email" required>
+            </div>
+            <div class="password">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password1" name="password" autocomplete="current-password" required>
+            </div>
+            <article class="rememberMe">
+                <input type="checkbox" name="remeber" id="remember1"> Remember me?
+            </article>
+            <article class="sign">
+                Don't have account? <span href="" id="goToSignup">Signup</span><br><br><span href="#">Forgot password</span>
+            </article>
+            <button type="submit" id="loginButton" onclick="loaduser()">LOGIN</button>
+        </div>
+    </form>
+    <form id="signupForm">
+        <h3 id="loginTitle">SIGNIN TO INFR.IT</h3>
+        <div class="signupWrapper">
+            <div class="firstName">
+                <label for="UserName">User Name:</label><br>
+                <input type="text" id="userName" name="userName" autocomplete="username" required>
+            </div>
+            <div class="email">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="password" id="showPassword">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+            </div>
+            <div class="age" id="showAge">
+                <label for="age">BirthDate:</label><br>
+                <input type="date" id="birthdate" name="age" autocomplete="bday-day" required>
+            </div>
+            <div class="location" id="showLocation">
+                <label for="location">Location:</label><br>
+                <select name="location" id="location">
+                    <optgroup label="Africa">
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="SouthAfrica">South Africa</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Morocco">Morocco</option>
+                    </optgroup>
+                    <optgroup label="America">
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Mexico">Mexico</option>
+                    </optgroup>
+                    <optgroup label="Europe">
+                        <option value="UK">UK</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Russia">Russia</option>
+                    </optgroup>
+                    <optgroup label="Asia">
+                        <option value="China">China</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Viettnam">Viettnam</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="corporate" id="showCorporate">
+                <label for="corporate">Corporate:</label><br>
+                <select name="corporate" id="corporate">
+                    <option value="Individual">Individual</option>
+                    <option value="Campany">Campany</option>
+                </select>
+            </div>
+            <article class="rememberMe">
+                <input type="checkbox" name="remeber" id="remember2"> Remember me?
+            </article>
+            <article class="sign">
+                Have account? <span href="" id="goToLogin">login</span><br>
+            </article>
+            <button type="submit" id="signupButton">SIGNUP</button>
+        </div>
+    </form>
+    <i class='bx bx-x login-close' id="login-close"></i>
+</section>
+<!-- SEARCH -->
+<section class="search">
+    <div class="searchContainer">
+        <input type="search" name="search" id="search" placeholder="search...">
+    </div>
+    <i class='bx bx-x search-close' id="search-close"></i>
+</section>
+    <main>
+        <nav class="navInMain">
+            <section class="bottomNav">
+                <ul class="navList mainNav">
+                    <li class="navItem">
+                        <a href="#itInfrastructure">
+                            <span class="navText">IT INFRASTRUCTURE</span>
+                            <span class="navIcon"><i class='bx bx-building-house'></i></span>
+                        </a>
+                    </li>
+                    <li class="navItem">
+                        <a href="#infraIt">
+                            <span class="navText">INFR.IT</span>
+                            <span class="navIcon"><img src="images/it.jpg" alt="INFR.IT" title="INFR.IT" id="it"></span>
+                        </a>
+                    </li>
+                    <li class="navItem">
+                        <a href="#benefits">
+                            <span class="navText">BENEFITS</span>
+                            <span class="navIcon"><i class='bx bxl-tailwind-css'></i></span>
+                        </a>
+                    </li> 
+                    <li class="navItem">
+                        <a href="#reviews">
+                            <span class="navText">REVIEWS</span>
+                            <span class="navIcon"><i class='bx bx-note'></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+        <div class="main">
+            <section class="mainContent">
+                <article class="itInfrastructure" id="itInfrastructure">
+                    <h2 class="mainTitles">IT INFRASTRUCTURES</h2>
+                    <div class="accordion">
+                        <h3 class="accordionTitle">WHAT IS IT INFRASTRUCTURE?</h3>
+                        <p class="accordionContent">
+                            <abbr title="INFORMATION TECHNOLOGY">IT</abbr> Infrastructure is the backbone of today businesses.
+                            It provides the <a href="#" class="mainLinks">COMPUTE</a>, <a href="#" class="mainLinks">NETWORK</a>,
+                            <a href="#" class="mainLinks">WORKPLACE</a> and <a href="#" class="mainLinks">DATA PLATFORM</a>
+                            capabilities needed to empower the users and run the application that run the business.<br>Traditional
+                            Infrastructure include expensive hardware, data centers and servers all requiring manual intervation.
+                        </p>
+                    </div>
+                    <div class="accordion">
+                        <h3 class="accordionTitle">HOW DOES IT INFRASTRUCTURE WORK?</h3>
+                        <p class="accordionContent">
+                            To maximise the value of cloud, campanies must modernise to a software-defined and intelligent
+                            Infrastructure. Modern Infrastructure includes a mix of : on-premises data centers, hybrid multi-cloud
+                            environments and edge computing devicec, all connected by Enterprises and 5G Networks. <br>
+                            Increasingly, Infrastructure is code that can be automatically managed and monitored.
+                            Resources are automatically privisioned. No more manual configurations required. <br>
+                            IT Infrastructure is a hybrid multi-cloud world and Enterprises need a Modern hybrid Infrastructure
+                            to match.
+                        </p>
+                    </div>
+                    </div>
+                </article>
+                <!-- I have to this cards:hover -->
+                <article class="infraIt" id="infraIt">
+                    <h2 class="mainTitles">INFRA.IT</h2>
+                    <div class="thisDiv">
+                        <div class="cards1">
+                            <img src="images/infra1.webp" class="infraItImages">
+                            <div>
+                                <p class="infraItPara">We are one Campany That can help you to get your lincesses.</p><br>
+                                <p class="desc">We provide you with the software lincess you need to apen an application
+accordance to the manufacturer or help you to set your own software lincess for your programm.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cards2">
+                            <img src="images/infra4.jpg" class="infraItImages">
+                            <div>
+                                <p class="infraItPara">We help you to make, maintain and manage your cloud storage.</p><br>
+                                <p class="desc">We help you to make your own cloud storage, maintain, manage, update and real-time monitoring
+                                of your cloud storage. We also allow you to connect it to your clients.</p>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="thisDiv">
+                        <div class="cards3">
+                            <img src="images/infra.webp" class="infraItImages">
+                            <div>
+                                <p class="infraItPara">We help you to set your network configurations.</p><br>
+                                <p class="desc">You can set the desired network configurations for your network. You can grant
+                                or revoke permissions, block sites, manage the traffic on your network.</p>
+                            </div>
+                        </div>
+                        <div class="cards4">
+                            <img src="images/infra.png" class="infraItImages">
+                            <div>
+                                <p class="infraItPara">We help you set, manage, maintain and monitir server logs.</p><br>
+                                <p class="desc">We help you to do powerful programms that can help you to make and manage the server logs for your network.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="benefits" id="benefits">
+                    <h2 class="mainTitles">ADVANTAGES IT INFRASTRUCTURES</h2>
+                    <p style="color: #dee;text-align: center;font-size: 20px;margin-bottom: 1rem;">What can you think that is the advantages of Infra.It</p>
+                    <div class="benefitsContainer">
+                        <div class="box1">
+                            <img src="images/infra1.jpg">
+                            <p class="benefitsPara">
+                                <span class="benefitsTitle">Speeds up work processes:</span><br>
+                                Repeated and lenghtl tasks can take long hours of manual effort and huge resource costs. This IT INFRASTRUCTURE
+                                frees up resources to focus on other values-adiing activities.
+                            </p>
+                        </div>
+                        <div class="box2">
+                            <p class="benefitsPara">
+                                <span class="benefitsTitle">Standardizez work for fewer erros:</span><br>
+                                Manual allocation of technology resources leads to unpredicted human errors. Automation standardizes
+                                the allocation of resources while reducing the possibility of errors or delays.
+                            </p>
+                            <img src="images/infra.png_version=1&modificationDate=1352642949000">
+                        </div>
+                        <div class="sthing">
+                            <div class="box3">
+                                <img src="images/image.gif">
+                                <p class="benefitsPara">
+                                    <span class="benefitsTitle">Ensures security and disaster recovery:</span><br>
+                                    Human errors account for a good chunk of the security breach incidents within a business. infraIt
+                                    eliminates humaninteraction to reduce the chance of unpredicted errors that cause security incidents.
+                                </p>
+                            </div>
+                            <div class="box4">
+                                <img src="images/infra4.jpg">
+                                <p class="benefitsPara">
+                                    <span class="benefitsTitle">We provide the <strong>Compute</strong>, <strong>Network</strong>,
+                                    <strong>Workplace</strong> and <strong>Data PLatform</strong> needed To empower the users and
+                                    rub the applications that run the business.</span>
+                                </p>
+                            </div>
+                            <div class="box5">
+                                <img src="images/infra3.jpeg">
+                                <p class="benefitsPara">
+                                    <span class="benefitsTitle">We provide <strong>On-Premises Data Centers,</strong> <strong>Hybrid Multi-Cloud,</strong>
+                                    <strong>Edge Computing devices</strong>, all connected to enterprises and 5G Networks.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="reviews" id="reviews">
+                    <h2 class="mainTitles">REVIEWS</h2>
+                    <div class="wrapper">
+                        <i id="left" class='bx bx-left-arrow-alt'></i>
+                        <ul class="carousel" id="carousel">
+                            <li class="reviewCard" id="reviewForm">
+                                <div class="cardImage"><img src="images/image.gif" class="commentImage" draggable="false" id="commentImage"></div>
+                                <input type="text" class="CommentName" id="commentName" placeholder="your name...">
+                                <input type="text" class="theComment" id="theComment" placeholder="your comment...">
+                                <button type="submit" id="reviewSubmit">Post Comment</button>
+                            </li>
+                            <li class="reviewCard">
+                                <div class="cardImage"><img src="images/infra1.jpg" class="commentImage" draggable="false"></div>
+                                <p class="CommentName">Jeremy NK</p>
+                                <p class="theComment">
+                                    I really like this website because it really helped me manage my Network.
+                                </p>
+                            </li>
+                            <li class="reviewCard">
+                                <div class="cardImage"><img src="images/infra1.jpg" class="commentImage" draggable="false"></div>
+                                <p class="CommentName">Jeremy NK</p>
+                                <p class="theComment">
+                                    I really like this website because it really helped me manage my Network.
+                                </p>
+                            </li>
+                            <li class="reviewCard">
+                                <div class="cardImage"><img src="images/infra1.jpg" class="commentImage" draggable="false"></div>
+                                <p class="CommentName">Jeremy NK</p>
+                                <p class="theComment">
+                                    I really like this website because it really helped me manage my Network.
+                                </p>
+                            </li>
+                            <li class="reviewCard">
+                                <div class="cardImage"><img src="images/infra1.jpg" class="commentImage" draggable="false"></div>
+                                <p class="CommentName">Jeremy NK</p>
+                                <p class="theComment">
+                                    I really like this website because it really helped me manage my Network.
+                                </p>
+                            </li>
+                            <li class="reviewCard">
+                                <div class="cardImage"><img src="images/infra1.jpg" class="commentImage" draggable="false"></div>
+                                <p class="CommentName">Jeremy NK</p>
+                                <p class="theComment">
+                                    I really like this website because it really helped me manage my Network.
+                                </p>
+                            </li>
+                            <li class="reviewCard">
+                                <div class="cardImage"><img src="images/infra1.jpg" class="commentImage" draggable="false"></div>
+                                <p class="CommentName">Jeremy NK</p>
+                                <p class="theComment">
+                                    I really like this website because it really helped me manage my Network.
+                                </p>
+                            </li>
+                            <li class="reviewCard">
+                                <div class="cardImage"><img src="images/infra1.jpg" class="commentImage" draggable="false"></div>
+                                <p class="CommentName">Jeremy NK</p>
+                                <p class="theComment">
+                                    I really like this website because it really helped me manage my Network.
+                                </p>
+                            </li>
+                        </ul>
+                        <i id="right" class='bx bx-right-arrow-alt'></i>
+                    </div>
+                </article>
+            </section>
+            <aside class="sideContent">
+                <h3>INFRASTRUCTURES</h3>
+                <p>There are many IT Infrastructures that you might need to know.</p>
+                <p>Some of them are:</p>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra2.jpg">
+                        <div class="absolute card1">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra.jpg">
+                        <div class="absolute card2">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra4.jpg">
+                        <div class="absolute card3">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra.png">
+                        <div class="absolute card4">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra1.jpg">
+                        <div class="absolute card5">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra6.jpg">
+                        <div class="absolute card6">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra.webp">
+                        <div class="absolute card7">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/infra3.jpeg">
+                        <div class="absolute card8">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="imptn">
+                    <div class="ads">
+                        <img src="images/it.webp">
+                        <div class="absolute card9">
+                            <h4 class="sideTitle">THIS INFRA</h4>
+                            <p class="sideDesc">
+                                Lorem, ipsum dolor sit amet consectetur 
+                                adipisicing elit. Voluptatem ex nihil ratione.nihil ratione.nihil ratione.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </aside>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, autem. Quod et, nemo repudiandae eligendi in enim, cumque vitae maxime dolor a sequi atque pariatur aspernatur ducimus id neque modi!
+        </p>
+        <div class="footerContainer">
+            <fieldset class="about">
+                <legend>Components</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Hardware</a></li>
+                        <li><a class="footerLinks" href="#">Software</a></li>
+                        <li><a class="footerLinks" href="#">Network</a></li>
+                        <li><a class="footerLinks" href="#">Meatware</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            <fieldset class="about">
+                <legend>Types of Infrastructure</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Traditional Infrastructure</a></li>
+                        <li><a class="footerLinks" href="#">Cloud Infrastructure</a></li>
+                        <li><a class="footerLinks" href="#">Hyper Converged Infrastructure</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            <fieldset class="about">
+                <legend>Network configurations</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Block Sites</a></li>
+                        <li><a class="footerLinks" href="#">Add Permission</a></li>
+                        <li><a class="footerLinks" href="#">Remove Permission</a></li>
+                        <li><a class="footerLinks" href="#">Manage Network</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            <fieldset class="about">
+                <legend>Lincessing</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Create Lincess</a></li>
+                        <li><a class="footerLinks" href="#">Manage OpenSource</a></li>
+                        <li><a class="footerLinks" href="#">Software Distribution</a></li>
+                        <li><a class="footerLinks" href="#">Domain Name Register</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            &copy; IT INFRASTRUCTURE
+        </div>
+    </footer>
+<script>
+$(document).ready(function(){
+    $('#signupForm').submit(function(event){
+        event.preventDefault();
+        addUser();
+    });
+});
+
+function addUser() {
+    var userName = $('#userName').val();
+    var email = $('#email').val();
+    var password = $('#password').val();
+    var birthdate = $('#birthdate').val();
+    var location = $('#location').val();
+    var corporate = $('#corporate').val();
+    
+    $.ajax({
+        type: 'POST',
+        url: '../scripts/apiSign.php',
+        data: {
+            userName: userName,
+            email: email,
+            password: password,
+            birthdate: birthdate,
+            location: location,
+            corporate: corporate
+        },
+        success: function(response) {
+            console.log(response);
+        },
+        error: function() {
+            console.log('Failed to add student.');
+        }
+    });
+}
+
+const editUser = (id) => {
+    let name = prompt("Enter the new name");
+    let email = prompt("Enter the new email");
+    let password = prompt("Enter the new password");
+    let birthdate = prompt("Enter the new birthdate");
+    let location = prompt("Enter the new location");
+    let corporate = prompt("Enter the new corporate");
+    
+    $.ajax({
+        type: 'PUT',
+        url: '../scripts/apiSign.php',
+        data: {
+            id: id,
+            name: name,
+            email: email,
+            password: password,
+            birthdate: birthdate,
+            location: location,
+            corporate: corporate
+        },
+        success: function(response) {
+            console.log(response);
+        },
+        error: function() {
+            console.log('Failed to edit student.');
+        }
+    });
+}
+
+const deleteUser = (id) => {
+    $.ajax({
+        type: 'DELETE',
+        url: '../scripts/apiSign.php',
+        data: {
+            id: id
+        },
+        success: function(response) {
+            console.log(response);
+        },
+        error: function() {
+            console.log('Failed to delete student.');
+        }
+    });
+}
+</script>
+</body>
+</html>

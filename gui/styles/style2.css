@@ -1,0 +1,97 @@
+#addNetwork{
+    color: #cde;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-top: 3rem;
+    font-size: 20px;
+}
+#addNetwork h1{
+    position: absolute;
+    top: 4cm;
+    font-size: 26px;
+    margin-left: 10cm;
+}
+#addNetwork div, #addNetwork form{
+    padding: .4rem;
+}
+.networkForm{
+    background: #149;
+    width: 10cm;
+    padding: 2rem;
+}
+.form{
+    padding: 2rem;
+}
+.networkForm input{
+    height: 2rem;
+    border: none;
+    outline: none;
+    text-indent: 1rem;
+    margin-left: 6rem;
+}
+#networkSubmit{
+    width: 90%;
+    height: 2rem;
+    padding: .5rem;
+    background: #cde;
+    color: #149;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 2rem;
+    transition: .2s;
+}
+#networkSubmit:hover{
+    background: #fff;
+    transition: .2s;
+}
+#networkSubmit:active{
+    background: #149;
+    color: #cde;
+    transition: .2s;
+}
+.statusGain{
+    background: #fff;
+    position: fixed;
+    top: -4cm;
+    right: 2cm;
+    width: 10cm;
+    padding: 1rem;
+    height: 5rem;
+    text-align: center;
+    z-index: 20;
+}
+.statusGain h2{
+    font-size: 17px;
+    color: #202;
+    text-align: right;
+    margin-right: 2cm;
+    margin-top: 1.7rem;
+}
+.statusGain i, .statusGain img{
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 28px;
+}
+#addUserError i{color: #f00;}
+#addUserError h2{
+    margin-top: -.1rem;
+    margin-left: 1cm;
+}
+
+@keyframes moving {
+    0% {display: block; position: fixed; top: 3rem; right: 1cm; transition: .2s;}
+    10% {position: fixed; top: 5rem; right: 1.1cm; transition: .2s;}
+    20% {position: fixed; top: 10cm; right: 1.2cm; transition: .2s;}
+    30% {position: fixed; top: 10cm; right: 1.3cm; transition: .2s;}
+    40% {position: fixed; top: 10cm; right: 1.4cm; transition: .2s;}
+    50% {position: fixed; top: 10cm; right: 1.5cm; transition: .2s;}
+    60% {position: fixed; top: 10cm; right: 1.6cm; transition: .2s;}
+    70% {position: fixed; top: 10cm; right: 1.7cm; transition: .2s;}
+    80% {position: fixed; top: 10cm; right: 1.8cm; transition: .2s;}
+    90% {position: fixed; top: 3rem; right: 1.9cm; transition: .2s;}
+    100% {position: fixed; display: none; right: 2cm; transition: .2s;}
+}

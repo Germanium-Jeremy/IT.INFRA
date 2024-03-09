@@ -1,0 +1,902 @@
+/* KEYFRAMES */
+@keyframes grow {
+    0% { transform: scale(1.0); transition: .2s; }
+    20% { transform: scale(1.1); transition: .2s; }
+    40% { transform: scale(1.0); transition: .2s; }
+    60% { transform: scale(1.1); transition: .2s; }
+    80% { transform: scale(1.0); transition: .2s; }
+    100% { transform: scale(1.1); transition: .2s; }
+}
+
+
+
+/*====== GENERAL  CSS FOR ALL PAGES ======*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+    outline: none;
+    text-decoration: none;
+}
+
+body{
+    background: url(../images/infra2.jpg) no-repeat fixed;
+    background-size: cover;
+    backdrop-filter: brightness(20%);
+    padding: 1rem;
+    position: relative;
+    margin: 0;
+    transition: .3s;
+}
+/*==== HEADER ====*/
+.logo{
+    width: 2cm;
+    height: 2.4cm;
+    border: none;
+    outline: none;
+    position: fixed;
+    left: 1rem;
+    top: 1.6rem;
+    cursor: pointer;
+    z-index: 12;
+}
+
+.logo a{
+    position: absolute;
+    top: 2rem;
+    left: 6rem;
+    font-size: 25px;
+    color: #557;
+    transition: .4s;
+}
+
+.logo a:focus{
+    color: #301;
+}
+
+.logo a:hover{
+    color: #bcd;
+}
+
+/*====== HEADER NAV ======*/
+.topNav{
+    background: #dee;
+    border-radius: 5px;
+    width: 75%;
+    box-shadow: 1px 4px 10px #aaa;
+    margin-left: 5.2cm;
+}
+.navList{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navItem{
+    padding: 1rem;
+    cursor: pointer;
+    color: #101;
+}
+.navItem:hover{
+    color: #703;
+    background: #eee;
+}
+.navItem:active{
+    color: #104187;
+    background: #ada;
+    transition: .2s;
+}
+
+.logIn{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #def;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 1px 4px 10px #aaa;
+}
+.logIn:hover{
+    background: #eee;
+    color: #703;
+}
+/*====== HEADER BOTTOM NAV ======*/
+.navInMain{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #101;
+}
+#it{
+    width: 1rem;
+}
+.mainNav{
+    background: #104187;
+    margin-top: .5cm;
+    margin-bottom: 1cm;
+    border-radius: 5px;
+    transition: .3s;
+}
+.mainNav a{
+    color: #dee;
+}
+.mainNav .navItem{
+    padding: .7rem;
+    transition: .3s;
+}
+.mainNav .navItem:hover{
+    background: #4051a7;
+    transition: .3s;
+}
+/*====== SEARCH CONTAINER ======*/
+.search{
+    position: fixed;
+    top: -100%;
+    height: 15cm;
+    width: 97.5%;
+    backdrop-filter: blur(120px);
+    z-index: 20;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    transition: .3s;
+}
+#search{
+    width: 80%;
+    height: 3rem;
+    border: none;
+    border-radius: 7px;
+    text-indent: 2rem;
+    outline: none;
+    background: #dee;
+    transition: .4s;
+}
+#search-close, #login-close{
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 1cm;
+    right: 1cm;
+    border-radius: 50%;
+    background: #104187;
+}
+
+/*====== LOGIN & SIGNUP =======*/
+/* login */
+.login{
+    position: fixed;
+    width: 97.5%;
+    height: 100%;
+    top: -100%;
+    bottom: 0;
+    padding: 3rem;
+    backdrop-filter: blur(120px);
+    z-index: 14;
+    justify-content: center;
+    transition: .4s;
+}
+#loginForm{
+    position: absolute;
+    left: 35%;
+    width: 10cm;
+    padding: 1rem;
+    background: rgba(8, 12, 130, 0.767);
+    transition: .3s;
+}
+#loginForm *{
+    margin-bottom: .5rem;
+}
+#loginTitle{
+    text-align: center;
+    color: #def;
+    font-size: 26px;
+    margin-bottom: 1rem;
+}
+.loginWrapper{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.loginWrapper div label{
+    color: #eee;
+    font-size: 18px;
+}
+.loginWrapper div input{
+    width: 7cm;
+    height: 2rem;
+    border: none;
+    outline: none;
+    text-indent: 1rem;
+}
+.rememberMe{
+    margin-left: -3.6cm;
+    color: #def;
+}
+#loginButton, #signupButton{
+    padding: .5rem;
+    color: rgb(8, 12, 130);
+    background: #def;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    font-weight: 600;
+    width: 70%;
+}
+#loginButton:hover, #signupButton:hover{
+    background: rgb(12, 42, 230);
+    color: #eef;
+    transition: .4s;
+}
+.sign{
+    color: #dee;
+    padding-top: .2rem;
+    padding-bottom: 1rem;
+}
+.sign span{
+    color: #dd8;
+    font-weight: 500;
+    transition: .3s;
+}
+.sign span:hover{
+    color: #dee;
+    transition: .4s;
+}
+
+/* signup */
+#signupForm{
+    width: 10cm;
+    position: absolute;
+    left: 110%;
+    display: none;
+    backdrop-filter: brightness(30%);
+    padding: 1rem;
+    background: rgba(8, 12, 130, 0.897);
+}
+.signupWrapper{
+    align-items: center;
+    display: flex;
+    /* background: rgba(7, 12, 146, 0.79); */
+    flex-direction: column;
+}
+.signupWrapper *{
+    margin-bottom: .3rem;
+}
+.signupWrapper label{
+    color: #cde;
+}
+.signupWrapper div input{
+    text-indent: 1rem;
+    width: 7cm;
+    height: 1.6rem;
+    border: none;
+    outline: none;
+}
+#signupForm select{
+    height: 1.6rem;
+    width: 7cm;
+}
+
+/*====== MAIN =======*/
+/* .main{
+
+} */
+.sideContent{
+    padding: 1rem;
+    position: absolute;
+    top: 4.3cm;
+    right: 1rem;
+    background: #fff;
+    max-width: 6.4cm;
+    text-align: center;
+    overflow: hidden;
+}
+.sideContent img{
+    width: 100%;
+    z-index: -10;
+    transition: .3s;
+}
+.absolute{
+    position: absolute;
+    left: 100%;
+    padding: .2rem;
+    width: 5.55cm;
+    backdrop-filter: blur(4px);
+    transition: .3s;
+}
+.ads:hover .absolute{
+    left: 1rem;
+}
+.sideTitle{
+    font-size: 20px;
+    color: #dee;
+    transition: .3s;
+}
+.sideDesc{
+    font-size: 16px;
+    color: #dee;
+    text-align: center;
+    transition: .3s;
+}
+.imptn{
+    margin-top: 1rem;
+}
+
+/* first card */
+.card1{
+    top: 3.35cm;
+    height: 3.64cm;
+}
+
+/* second card */
+.card2{
+    top: 7.45cm;
+    height: 3.6cm;
+}
+
+/* third card */
+.card3{
+    top: 11.2cm;
+    height: 4cm;
+}
+
+/* forth card */
+.card4{
+    top: 15.4cm;
+    height: 4cm;
+}
+.card4 p, .card4 h4{
+    color: #301;
+}
+
+/*====== SECTIONS =======*/
+
+/* itInfrastructure section */
+/* .itInfrastructure{
+} */
+.mainTitles{
+    text-align: center;
+    font-size: 26px;
+    color: #adc;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    transition: .3s;
+}
+.mainLinks{
+    color: #dd8;
+    transition: .3s;
+}
+.mainLinks:hover{
+    color: #dee;
+    transition: .3s;
+}
+
+.mainContent{
+    color: #cde;
+    width: 80%;
+    font-size: 18px;
+    transition: .3s;
+}
+
+.mainContent article{
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+}
+
+.itInfrastructure{
+    width: 100%;
+    margin-left: 2cm;
+}
+
+/* ACCORDIONS */
+.accordion{
+    text-align: center;
+    padding: 1rem;
+    width: 80%;
+    position: relative;
+}
+.accordionTitle{
+    padding: .5rem;
+    background: #104187;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+.accordionTitle::before{
+    content: '+';
+    position: absolute;
+    right: 20px;
+    transition: .4s;
+}
+.accordion.active .accordionTitle::before{
+    content: '-';
+    transition: .3s;
+}
+.accordionContent{
+    box-shadow: 2px 4px 8px #cde;
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+    height: 0;
+    overflow-y: auto;
+    transition: .3s;
+}
+.accordion.active .accordionContent{
+    height: fit-content;
+    padding: .3rem;
+    transition: .3s;
+}
+
+/* INFRAIT */
+.infraItImages{
+    width: 8cm;
+    height: 6cm;
+    border-radius: 5px;
+    margin-bottom: .5rem;
+    box-shadow: 3px 6px 9px #301;
+}
+h2{
+    margin-left: -7cm;
+}
+.cards1, .cards2, .cards3, .cards4{
+    background: #dee;
+    text-align: center;
+    width: 9cm;
+    padding: 1rem;
+    height: 12cm;
+    cursor: pointer;
+    box-shadow: 2px 4px 7px rgba(221, 238, 238, 0.502);
+}
+.cards1:hover, .cards2:hover, .cards3:hover, .cards4:hover{
+    animation: grow infinite 10s;
+}
+.infraItPara{
+    color: #101;
+    font-size: 20px;
+}
+.desc{
+    font-size: 17px;
+    color: #101;
+}
+.thisDiv{
+    width: 25cm;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* benefits */
+.benefitsPara{
+    color: #101;
+    font-size: 18px;
+    text-align: center;
+    padding: 1rem;
+    transition: .3s;
+}
+.benefitsContainer{
+    background: #eee;
+    padding: 2rem;
+}
+.box1, .box2{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    width: 25cm;
+    padding: 1rem;
+    background: #dee;
+}
+.box1 p, .box2 p{
+    margin-top: 1.5cm;
+}
+.box1 img{
+    width: 10cm;
+    height: 6cm;
+    box-shadow: 4px 8px 10px #101;
+}
+.box2 img{
+    width: 16cm;
+    height: 8cm;
+}
+.benefitsTitle{
+    text-align: left;
+    font-size: 22px;
+    color: #301;
+}
+.sthing{
+    display: flex;
+    justify-content: space-evenly;
+}
+.sthing img{
+    width: 8cm;
+    height: 5cm;
+}
+.sthing div{
+    padding: 1rem;
+    margin: 1rem;
+}
+
+/*====== REVIEWS ======*/
+.wrapper{
+    max-width: 1020px;
+    width: 100%;
+    position: relative;
+}
+.wrapper i{
+    height: 50px;
+    width: 50px;
+    background: #dee;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 1.25rem;
+    transform: translateY(-50%);
+    box-shadow: 0px 5px 9px rgba(0, 0, 0, .23);
+}
+.wrapper i:first-child{
+    left: 0;
+}
+.wrapper i:last-child{
+    right: -22px;
+}
+.wrapper .carousel{
+    display: grid;
+    grid-auto-columns: calc((100% / 3) -12px);
+    grid-auto-flow: column;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+}
+.carousel :where(.reviewCard, .cardImage){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel.dragging{
+    scroll-behavior: auto;
+}
+.carousel .dragging .reviewCard{
+    cursor: grab;
+    user-select: none;
+}
+.carousel .reviewCard{
+    height: 342px;
+    list-style: none;
+    background: #eee;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+}
+.reviewCard input{
+    border: 1px solid #101;
+    outline: none;
+    background: #cdcdcd;
+    height: 2rem;
+    text-indent: 1rem;
+}
+.reviewCard button{
+    padding: .4rem;
+    background: #104187;
+    color: #dee;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    margin-top: .8rem;
+}
+.reviewCard button:hover{
+    background: #4051a7;
+    transition: .3s;
+}
+.reviewCard button:active{
+    background: #101;
+    color: #eee;
+    transition: .3s;
+}
+.cardImage{
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    border: 4px solid #dd8;
+}
+.commentImage{
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.CommentName{
+    color: #101;
+    font-weight: 500;
+    margin: 30px .5px;
+    font-size: 19px;
+    transition: .3s;
+}
+.theComment{
+    font-size: 16px;
+    color: #301;
+}
+
+/*====== FOOTER =======*/
+.footer{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 7rem 2rem 2rem;
+    color: #333;
+    background: #cde;
+    margin-top: 4rem;
+}
+.footer p{
+    max-width: 8cm;
+    min-width: 5cm;
+    font-size: 17px;
+    color: #101;
+}
+.footerContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.footerContainer legend{
+    font-size: 22px;
+    color: #101;
+}
+.about{
+    min-width: 5cm;
+    min-height: 4cm;
+    border: 2px solid #301;
+    padding: 1rem;
+    margin: 1rem 1rem 3rem;
+}
+.footerAllLinks{
+    list-style: none;
+    display: grid;
+}
+.footerLinks{
+    font-size: 16px;
+    color: #101;
+    line-height: 2rem;
+}
+.footerLinks:hover{
+    color: #703;
+    transition: .3s;
+}
+
+
+/* ========= MY ACCOUNT LOGED IN ========== */
+.yourInfoContainor{
+    width: 12cm;
+    height: auto;
+    padding: 2rem;
+    background: linear-gradient(30deg, #dee, #adc);
+    justify-content: center;
+    color: #101;
+    font-size: 20px;
+    border-radius: 15px;
+    border: 2px solid #999;
+    margin-left: 2cm;
+    transition: .3s;
+}
+.yourInfoContainor p{
+    text-align: left;
+    color: #333;
+    text-indent: 1rem;
+}
+.yourInfoContainor label{
+    text-align: left;
+}
+.yourInfoContainor *{
+    margin-bottom: 1.25rem;
+}
+.Profile > img{
+    width: 7cm;
+    height: 7cm;
+    border-radius: 50%;
+    margin-left: 1.5cm;
+}
+
+#activities{
+    background: linear-gradient(45deg, #adc, #dee);
+    border-radius: 20px;
+    margin-left: 2cm;
+    width: 12cm;
+    padding: 1rem;
+    color: #101;
+    padding-top: 5rem;
+    overflow: hidden;
+}
+.activity{
+    display: flex;
+    justify-content: space-evenly;
+    background: #def;
+    border-radius: 60px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.activity:hover{
+    animation-name: grow;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+.activityImage{
+    width: 4cm;
+    height: 4cm;
+    border-radius: 50%;
+    margin-right: .4rem;
+}
+#thisTitle{
+    position: absolute;
+    top: 7rem;
+    color: #101;
+}
+
+.experienceContainor{
+    font-size: 30px;
+    text-align: center;
+    color: #101;
+    background: #def;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 32.5cm;
+}
+
+#workplace{
+    width: 32.5cm;
+    background: #dee;
+    color: #101;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    transition: .3s;
+}
+#workplace h2{
+    color: #101;
+    padding-top: 1rem;
+}
+.workplaceContainor{
+    padding: 1rem;
+}
+.workplaceAdd{
+    width: 20cm;
+    font-size: larger;
+    position: absolute;
+    top: 28cm;
+    background: rgb(12, 42, 230);
+}
+.locationAdd h3{
+    color: #dee;
+    font-size: 25px;
+}
+.locationAdd{
+    text-align: center;
+    position: absolute;
+    width: 20cm;
+    padding: 2rem;
+    top: -100%;
+    left: 20%;
+    border: 2px solid #dee;
+    background: rgb(12, 42, 230);
+}
+.locationAdd *{
+    margin-bottom: 1rem;
+}
+.locationAdd label{
+    font-size: 17px;
+    color: #dee;
+}
+.locationAdd input{
+    height: 2rem;
+    width: 80%;
+    color: #101;
+    font-size: 17px;
+    text-indent: 2rem;
+    outline: none;
+}
+.hdhdhd{
+    background: #dee;
+    color: #101;
+    padding: 1rem;
+    font-size: 18px;
+    outline: none;
+    border: none;
+}
+.hdhdhd:hover{
+    color: #dee;
+    background: #104187;
+    transition: .3s;
+}
+#locClose{
+    background: #104187;
+    color: #dee;
+    border-radius: 50%;
+    position: absolute;
+    top: 1cm;
+    right: 1cm;
+    font-size: 30px;
+}
+.accountButtons{
+    padding: .5rem;
+    border: none;
+    text-align: center;
+    color: #dee;
+    background: #104187;
+    font-size: 17px;
+    margin-top: 1rem;
+    transition: .3s;
+}
+.accountButtons:hover{
+    background: #4051a7;
+    color: #def;
+    transition: .3s;
+}
+.experienceAdd{
+    position: fixed;
+    top: -100%;
+    transition: .4s;
+}
+.experienceAdd h3{
+    font-size: 25px;
+    font-variant: small-caps;
+    margin-bottom: 1rem;
+}
+#experienceAdd{
+    width: 20cm;
+    text-align: center;
+    padding: 2rem;
+    border: 2px solid;
+    background: rgba(10, 100, 200, 1);
+    left: 20%;
+}
+#experienceAdd label{
+    font-size: 18px;
+    margin-top: 1rem;
+}
+#experienceAdd input{
+    height: 2rem;
+    width: 80%;
+    background: #dee;
+    color: #101;
+    border: none;
+    padding: .2rem;
+    outline: none;
+    text-indent: 2rem;
+    font-size: 17px;
+    margin-bottom: 1rem;
+}
+#expClose{
+    border-radius: 50%;
+    font-size: 30px;
+    color: #def;
+    background: #104187;
+    position: absolute;
+    top: 1cm;
+    right: 1cm;
+}
+
+#getInfo{
+    padding: 1rem;
+    background: #104187;
+    color: #dee;
+    font-size: 20px;
+    margin-right: 2cm;
+}
+#getInfo:hover{
+    background: #4051a7;
+    transition: .3s;
+}
+
+.main{
+    padding: 2cm;
+    text-align: center;
+    justify-content: center;
+}
+/*====== RESPONSIVES =======*/
+/*====== DARKMODE =======*/

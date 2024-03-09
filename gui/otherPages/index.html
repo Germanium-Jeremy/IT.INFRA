@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR ACCOUNT</title>
+    <link rel="stylesheet" href="../styles/style1.css">
+    <link rel="shortcut icon" href="../images/it.jpg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script defer src="../../scripts/script.js"></script>
+    <!-- <script defer src="../../scripts/api.js"></script> -->
+    <style>
+        #email{
+            display: block;
+            height: 2rem;
+            border: none;
+            outline: none;
+            width: 70%;
+            margin-bottom: 2rem;
+            font-size: 18px;
+            color: #201;
+            text-indent: 1rem;
+        }
+        #submit{
+            padding: .5rem;
+            font-size: 18px;
+            color: #eee;
+            background: #175099;
+            border: none;
+            outline: none;
+        }
+        #submit:hover{
+            background: #1234dd;
+            transition: .3s;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <section class="logo">
+        <img src="../images/it.jpg" alt="INFR.IT" title="INFR.IT" class="logo"><a href="/">INFR.IT</a>
+    </section>
+    <section class="topNav">
+        <ul class="navList">
+            <li class="navItem">
+                <span class="navText">NETWORK CONFIGURATIONS</span>
+                <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+            </li>
+            <li class="navItem">
+                <span class="navText">SERVER LOGS</span>
+                <span class="navIcon"><i class='bx bx-server'></i></span>
+            </li>
+            <li class="navItem">
+                <span class="navText">SOFTWARE LINCESS</span>
+                <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+            </li>
+            <li class="navItem" id="toggleSearch">
+                <span class="navText">SEARCH</span>
+                <span class="navIcon"><i class='bx bx-search-alt-2'></i></span>
+            </li>
+        </ul>
+    </section>
+    <div class="logIn" id="togglLogIn">
+        <span class="navText">MyAcc</span>
+        <span class="navIcon"><i class='bx bxs-user-circle'></i></span>
+    </div>
+</nav>
+<!-- SEARCH -->
+<section class="search">
+    <div class="searchContainer">
+        <input type="search" name="search" id="search" placeholder="search...">
+    </div>
+    <i class='bx bx-x search-close' id="search-close"></i>
+</section>
+<main>
+    <nav>
+        <section class="bottomNav">
+            <ul class="navList mainNav">
+                <li class="navItem">
+                    <a href="#yourInfo">
+                        <span class="navText">YOUR INFO</span>
+                        <span class="navIcon"><i class='bx bx-building-house'></i></span>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a href="#activities">
+                        <span class="navText">ACRIVITIES</span>
+                        <span class="navIcon"><img src="../images/it.jpg" alt="INFR.IT" title="INFR.IT" id="it"></span>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a href="#experience">
+                        <span class="navText">EXPERIENCE</span>
+                        <span class="navIcon"><i class='bx bxl-tailwind-css'></i></span>
+                    </a>
+                </li> 
+                <li class="navItem">
+                    <a href="#workplace">
+                        <span class="navText">WORKPLACE</span>
+                        <span class="navIcon"><i class='bx bx-note'></i></span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+<section class="mainContent">
+    <div style="display: grid;grid-template-columns: repeat(2,1fr);">
+        <section id="yourInfo">
+            <input type="email" name="email" id="email" placeholder="Enter Email To see info...">
+            <button type="submit" id="submit">See My Info</button>
+        </section>
+        <section id="activities">
+            <h2 class="mainTitles" style="margin-left: 3cm;" id="thisTitle">YOUR ACTIVITIES</h2>
+            <div class="activitiesContainor">
+                <div class="activity">
+                    <img src="../images/infra.png" class="activityImage">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisi</p>
+                </div>
+                <div class="activity">
+                    <img src="../images/infra.png" class="activityImage">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisi</p>
+                </div>
+                <div class="activity">
+                    <img src="../images/infra.png" class="activityImage">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisi</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section id="experience">
+        <h2 class="mainTitles">YOUR EXPERIENCE</h2>
+        <div class="experienceContainor">
+            <p>There is no experience yet!</p>
+            <button class="accountButtons" id="exp">Add Your Experience</button>
+        </div>
+    </section>
+<section id="experienceAdd" class="experienceAdd">
+    <h3>Add Experience</h3>
+    <form class="expForm" method="post" action="">
+        <div class="whatYouDid">
+            <label for="">What you did:</label><br>
+            <input type="text" id="myExp" placeholder="Teaching..." required>
+        </div>
+        <div class="whenYouDid">
+            <label for="">When did you do that:</label><br>
+            <input type="text" id="when" placeholder="Since 2020..." required>
+        </div>
+        <div class="jobTitle">
+            <label for="">What was your job:</label><br>
+            <input type="text" id="myJob" placeholder="Since 2020..." required>
+        </div>
+        <div class="proof">
+            <label for="">What was your job:</label><br>
+            <input type="file" id="myProof" placeholder="Diplomas..." required>
+        </div>
+        <button type="submit" class="accountButtons">Add Experience</button>
+    </form>
+    <i class='bx bx-x' id="expClose"></i>
+</section>
+    <section id="workplace">
+        <h2 class="mainTitles">YOUR WORKPLACE</h2>
+        <div class="workplaceContainor">
+            <p>There is no workplace</p>
+            <button class="accountButtons" id="ppp">Add your workplace</button>
+        </div>
+    </section>
+</section>
+<section class="locationAdd" id="locationAdd">
+    <h3>Add Location</h3>
+    <form class="locationContiner">
+        <div class="addLoc">
+            <label for="locate">Where You Work:</label><br>
+            <input type="text" id="locate" placeholder="Tesla...">
+        </div>
+        <button type="submit" class="hdhdhd">Add Location</button>
+    </form>
+    <i class='bx bx-x' id="locClose"></i>
+</section>
+</main>
+
+<footer class="footer">
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, autem. Quod et, nemo repudiandae eligendi in enim, cumque vitae maxime dolor a sequi atque pariatur aspernatur ducimus id neque modi!
+    </p>
+    <div class="footerContainer">
+        <fieldset class="about">
+            <legend>Components</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Hardware</a></li>
+                    <li><a class="footerLinks" href="#">Software</a></li>
+                    <li><a class="footerLinks" href="#">Network</a></li>
+                    <li><a class="footerLinks" href="#">Meatware</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset class="about">
+            <legend>Types of Infrastructure</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Traditional Infrastructure</a></li>
+                    <li><a class="footerLinks" href="#">Cloud Infrastructure</a></li>
+                    <li><a class="footerLinks" href="#">Hyper Converged Infrastructure</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset class="about">
+            <legend>Network configurations</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Block Sites</a></li>
+                    <li><a class="footerLinks" href="#">Add Permission</a></li>
+                    <li><a class="footerLinks" href="#">Remove Permission</a></li>
+                    <li><a class="footerLinks" href="#">Manage Network</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset class="about">
+            <legend>Lincessing</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Create Lincess</a></li>
+                    <li><a class="footerLinks" href="#">Manage OpenSource</a></li>
+                    <li><a class="footerLinks" href="#">Software Distribution</a></li>
+                    <li><a class="footerLinks" href="#">Domain Name Register</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        &copy; IT INFRASTRUCTURE
+    </div>
+</footer>
+<script>
+const btnSubmit = document.getElementById("submit").addEventListener("click", function(){
+    let emaiL = document.getElementById("email").value
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                alert(xhr.responseText)
+                checkUser(JSON.parse(xhr.responseText))
+            } else {
+                console.error('Failed to load User.')
+            }
+        }
+    }
+    xhr.open('GET', 'apis/api.php', true)
+    xhr.send('eMail=' + emaiL)
+})
+
+function checkUser(user) {
+    let myAccount = document.getElementById('yourInfo')
+    if (user || user.length > 0){
+        let div = document.createElement("div")
+        div.classList.add("yourInfoContainor")
+        div.innerHTML = `
+            <div class="Profile">
+                <img src="../images/it.webp" alt="">
+            </div>
+            <div class="name">
+                <label for="myName">My Name:</label>
+                <p id="myName">${user.USERNAME}</p>
+            </div>
+            <div class="age">
+                <label for="myAge">My Age:</label>
+                <p id="myAge">${user.BIRTHDATE}</p>
+            </div>
+            <div class="email">
+                <label for="myEmail">My Email:</label>
+                <p id="myEmail">${user.EMAIL}</p>
+            </div>
+            <div class="Location">
+                <label for="myLocation">My Location:</label>
+                <p id="myLocation">${user.LOCATION}</p>
+            </div>
+            <div class="Corporate">
+                <label for="myCorporate">My Corporate:</label>
+                <p id="myCorporate">${user.CORPORATE}</p>
+            </div>
+            <button onclick="editStudent(${user.ID})">Edit</button>
+            <button onclick="deleteStudent(${user.ID})">Delete</button>
+        `
+        myAccount.appendChild(div)
+    }else{
+        alert("User Not Found")
+        console.log("User Not Found")
+    }
+}
+</script>
+</body>
+</html>

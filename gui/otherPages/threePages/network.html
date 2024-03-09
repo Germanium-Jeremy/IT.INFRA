@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT.INFRA Network Configurations</title>
+    <link rel="stylesheet" href="../../styles/style1.css">
+    <link rel="stylesheet" href="../../styles/style2.css">
+    <link rel="shortcut icon" href="../../images/it.jpg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script defer src="../../../scripts/script.js"></script>
+    <script defer src="../../../scripts/network.js"></script>
+</head>
+<body>
+    <nav>
+        <section class="logo">
+            <img src="../../images/it.jpg" alt="INFR.IT" title="INFR.IT" class="logo"><a href="/">INFR.IT</a>
+        </section>
+        <section class="topNav">
+            <ul class="navList">
+                <a href="../../index.html" class="navItem">
+                    <span class="navText">HOME</span>
+                    <span class="navIcon"><i class='bx bx-home'></i></span>
+                </a>
+                <a href="#" class="navItem">
+                    <span class="navText">SERVER LOGS</span>
+                    <span class="navIcon"><i class='bx bx-server'></i></span>
+                </a>
+                <a href="#" class="navItem">
+                    <span class="navText">SOFTWARE LINCESS</span>
+                    <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+                </a>
+                <li class="navItem" id="toggleSearch">
+                    <span class="navText">SEARCH</span>
+                    <span class="navIcon"><i class='bx bx-search-alt-2'></i></span>
+                </li>
+            </ul>
+        </section>
+        <div class="logIn" id="toggleLogIn">
+            <span class="navText">LOGIN</span>
+            <span class="navIcon"><i class='bx bx-log-in-circle'></i></span>
+        </div>
+    </nav>
+<!-- LOGIN -->
+<section class="login">
+    <form action="../scripts/login.php" method="get" id="loginForm">
+        <h3 id="loginTitle">LOGIN TO INFR.IT</h3>
+        <div class="loginWrapper">
+            <div class="email">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email1" name="email3" autocomplete="email" required>
+            </div>
+            <div class="password">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password1" name="password" autocomplete="current-password" required>
+            </div>
+            <article class="rememberMe">
+                <input type="checkbox" name="remeber" id="remember1"> Remember me?
+            </article>
+            <article class="sign">
+                Don't have account? <span href="" id="goToSignup">Signup</span><br><br><span href="#">Forgot password</span>
+            </article>
+            <button type="submit" id="loginButton" onclick="loaduser()">LOGIN</button>
+        </div>
+    </form>
+    <form id="signupForm">
+        <h3 id="loginTitle">SIGNIN TO INFR.IT</h3>
+        <div class="signupWrapper">
+            <div class="firstName">
+                <label for="UserName">User Name:</label><br>
+                <input type="text" id="userName" name="userName" autocomplete="username" required>
+            </div>
+            <div class="email">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="password" id="showPassword">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+            </div>
+            <div class="age" id="showAge">
+                <label for="age">BirthDate:</label><br>
+                <input type="date" id="birthdate" name="age" autocomplete="bday-day" required>
+            </div>
+            <div class="location" id="showLocation">
+                <label for="location">Location:</label><br>
+                <select name="location" id="location">
+                    <optgroup label="Africa">
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="SouthAfrica">South Africa</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Morocco">Morocco</option>
+                    </optgroup>
+                    <optgroup label="America">
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Mexico">Mexico</option>
+                    </optgroup>
+                    <optgroup label="Europe">
+                        <option value="UK">UK</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Russia">Russia</option>
+                    </optgroup>
+                    <optgroup label="Asia">
+                        <option value="China">China</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Viettnam">Viettnam</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="corporate" id="showCorporate">
+                <label for="corporate">Corporate:</label><br>
+                <select name="corporate" id="corporate">
+                    <option value="Individual">Individual</option>
+                    <option value="Campany">Campany</option>
+                </select>
+            </div>
+            <article class="rememberMe">
+                <input type="checkbox" name="remeber" id="remember2"> Remember me?
+            </article>
+            <article class="sign">
+                Have account? <span href="" id="goToLogin">login</span><br>
+            </article>
+            <button type="submit" id="signupButton">SIGNUP</button>
+        </div>
+    </form>
+    <i class='bx bx-x login-close' id="login-close"></i>
+</section>
+<!-- SEARCH -->
+<section class="search">
+    <div class="searchContainer">
+        <input type="search" name="search" id="search" placeholder="search...">
+    </div>
+    <i class='bx bx-x search-close' id="search-close"></i>
+</section>
+<nav class="navInMain">
+    <section class="bottomNav">
+        <ul class="navList mainNav">
+            <a href="#addNetwork" class="navItem">
+                <span class="navText">ADD YOUR NETWORK</span>
+                <span class="navIcon"><i class='bx bx-plus'></i></span>
+            </a>
+            <a href="#infraIt" class="navItem">
+                <span class="navText">ADD USERS</span>
+                <span class="navIcon"><i class="bx bxs-user"></i></span>
+            </a>
+            <a href="#benefits" class="navItem">
+                <span class="navText">REMOVE USERS</span>
+                <span class="navIcon"><i class='bx bx-minus'></i></span>
+            </a> 
+            <a href="#reviews" class="navItem">
+                <span class="navText">CONFIGURE NETWORK</span>
+                <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+            </a>
+        </ul>
+    </section>
+</nav>
+<main>
+    <section id="addNetwork">
+        <h1>ADD YOUR NETWORK</h1>
+        <div class="explain">
+            <p>
+                Adding your Network now will allow you to continue other procedures easily. <br>
+                You must add your network and other nessesary credintials in the form on the left side. <br>
+                Once you are done adding your network, you can then continue all other adjustments if needed.
+            </p>
+        </div>
+        <form class="networkForm" id="networkForm" style="padding: 2rem;">
+            <h3>ADD YOUR NETWORK</h3>
+            <div class="form">
+                <div class="networkName">
+                    <label for="">Network Name</label><br>
+                    <input type="text" id="networkName">
+                </div>
+                <div class="networkSecurity">
+                    <label for="">Network Security Type</label><br>
+                    <input type="text" id="networkSecurity">
+                </div>
+                <div class="networkPassword">
+                    <label for="">Network Password</label><br>
+                    <input type="password" id="networkPassword">
+                </div>
+                <div class="networkEncription">
+                    <label for="">Network Encription Type</label><br>
+                    <input type="text" id="networkEncription">
+                </div>
+                <div class="networkAddress">
+                    <label for="">Network IP Address</label><br>
+                    <input type="text" id="networkAddress">
+                </div>
+                <div class="networkOwner">
+                    <label for="">Network Owner</label><br>
+                    <input type="text" id="networkOwner">
+                </div>
+                <div class="networkDhcp">
+                    <input type="checkbox" id="dhcp" value="enabled">Accept DHCP
+                </div>
+            </div>
+            <button type="submit" id="networkSubmit">ADD YOUR NETWORK</button>
+        </form>
+    </section>
+</main>
+<footer class="footer">
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, autem. Quod et, nemo repudiandae eligendi in enim, cumque vitae maxime dolor a sequi atque pariatur aspernatur ducimus id neque modi!
+    </p>
+    <div class="footerContainer">
+        <fieldset class="about">
+            <legend>Components</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Hardware</a></li>
+                    <li><a class="footerLinks" href="#">Software</a></li>
+                    <li><a class="footerLinks" href="#">Network</a></li>
+                    <li><a class="footerLinks" href="#">Meatware</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset class="about">
+            <legend>Types of Infrastructure</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Traditional Infrastructure</a></li>
+                    <li><a class="footerLinks" href="#">Cloud Infrastructure</a></li>
+                    <li><a class="footerLinks" href="#">Hyper Converged Infrastructure</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset class="about">
+            <legend>Network configurations</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Block Sites</a></li>
+                    <li><a class="footerLinks" href="#">Add Permission</a></li>
+                    <li><a class="footerLinks" href="#">Remove Permission</a></li>
+                    <li><a class="footerLinks" href="#">Manage Network</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset class="about">
+            <legend>Lincessing</legend>
+            <div class="aboutLinks">
+                <ul class="footerAllLinks">
+                    <li><a class="footerLinks" href="#">Create Lincess</a></li>
+                    <li><a class="footerLinks" href="#">Manage OpenSource</a></li>
+                    <li><a class="footerLinks" href="#">Software Distribution</a></li>
+                    <li><a class="footerLinks" href="#">Domain Name Register</a></li>
+                </ul>
+            </div>
+        </fieldset>
+        &copy; IT INFRASTRUCTURE
+    </div>
+</footer>
+</body>
+</html>

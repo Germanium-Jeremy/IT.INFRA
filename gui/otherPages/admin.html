@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="../styles/style1.css">
+    <link rel="stylesheet" href="../styles/style2.css">
+    <link rel="shortcut icon" href="../images/it.jpg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script defer src="api.js"></script>
+    <style>
+        main{
+            display: grid;grid-template-columns: repeat(2, 1fr);margin-top: 3rem;
+        } table{
+            width: 18cm;padding: 1rem .2rem 0 .2rem;height: 100%;
+            background: #eee;border-bottom: 2px solid #333;
+        } td{
+            padding: .8rem .2rem;font-size: 17px;color: #004;
+            text-wrap: wrap;font-family: serif;border-bottom: 1px solid #333;
+        } caption{
+            font-size: 23px;color: #004;text-align: center;
+            vertical-align: middle;padding: .7rem;background: #289;
+        } thead{
+            position: sticky;top: 0;background: #eee;height: 1cm;
+        } tfoot{
+            font-size: 23px;color: #004;text-align: center;
+            vertical-align: middle;height: 4rem;background: #289;
+        } #signForm{
+            position: sticky;top: 0;border: 2px solid #dee;
+            padding: 2rem;width: 7cm;height: 18cm;color: #eee;
+            line-height: 2.5rem;margin-top: 1rem; display: none;
+        } #signForm h2{
+            text-align: right;margin-bottom: .8rem;font-size: 22px;
+        } #signForm input, #signForm select{
+            width: 100%;height: 2rem;text-indent: 1rem;border: none;
+            outline: none;transition: .3s;
+        } #signForm input:focus, #signForm select:focus{
+            background: #cce;transition: .3s;
+        } #submit{
+            width: 100%;padding: .5rem;
+            height: 3rem;margin-top: 2rem;border: none;outline: none;
+            font-size: 18px;color: #bbe;background: #127;transition: .3s;
+        } #submit:hover{
+            background: #ccf;color: #289;transition: .4s;
+        } #submit:active{
+            background: #101;color: #004;transition: .2s;
+        } #adminTable button{
+            padding: .5rem;color: #127;background: #bbe;border: none;
+            outline: none;transition: .3s;
+        } #adminTable button:hover{
+            background: #ccf;color: #289;transition: .3s;
+        } #adminTable button:active{
+            background: #101;color: #127;transition: .2s;
+        } .searchBox{
+            width: 100%; height: 3rem; background: #eee; color: #101;
+            margin-top: 2rem; border-radius: 20px; padding: .6rem;
+        } #searchCont{
+            width: 95%; height: 2rem; color: #101;
+            margin-left: 2rem; border: none; padding: .2rem 2.5rem;
+        } #searc{
+            font-size: 20px; margin-left: 1cm; color: #101;
+            position: absolute; top: 3cm;
+        } #showAdminAddUser{
+            width: 5cm; height: 2rem; padding: .3rem 1rem; color: #004;
+            border: none; outline: none; border-radius: 30px; transition: .3s;
+            position: sticky; top: 2cm;
+        } #showAdminAddUser:hover{
+            background: #bbe; transition: .2s;
+        } #showAdminAddUser:active{
+            background: #004; color: #bbe; transition: .1s;
+        } #close{
+            font-size: 30px; background: #127; color: #ccf;
+            border-radius: 50%; position: absolute; top: -1rem; right: -1rem;
+        } #close:hover{
+            background: #289; transition: .2s;
+        } #pagination{
+            width: 100%; border-radius: 30px; height: 3rem; background: #eee;
+            padding: .3rem; margin-top: 2cm; color: #101; display: flex; justify-content: space-evenly;
+        } .pagination-btn{
+            color: #fff; background: #004; border-radius: 50%; padding: .2rem 1rem;
+            border: none; cursor: pointer; transition: .4s;
+        } .pagination-btn:hover{
+            background: #127; transition: .3s;
+        } .pagination-btn.active{
+            background: #289; transition: .3s;
+        } .pagination-btn:disabled{
+            background: #666; transition: .2s;
+        }
+    </style>
+</head>
+<body>
+<div class="statusGain" id="addUserSuccess">
+    <h2>You have successfully Signed in</h2>
+    <img src="../images/v.png">
+</div>
+<div class="statusGain" id="addUserError">
+    <h2>There were some problems signing in. Try Again!</h2>
+    <i class='bx bxs-message-rounded-x'></i>
+</div>
+    <nav>
+        <section class="logo">
+            <img src="../images/it.jpg" alt="INFR.IT" title="INFR.IT" class="logo"><a href="/">INFR.IT</a>
+        </section>
+        <section class="topNav">
+            <ul class="navList">
+                <li class="navItem">
+                    <span class="navText">NETWORK CONFIGURATIONS</span>
+                    <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+                </li>
+                <li class="navItem">
+                    <span class="navText">SERVER LOGS</span>
+                    <span class="navIcon"><i class='bx bx-server'></i></span>
+                </li>
+                <li class="navItem">
+                    <span class="navText">SOFTWARE LINCESS</span>
+                    <span class="navIcon"><i class='bx bx-signal-5'></i></span>
+                </li>
+            </ul>
+        </section>
+    </nav>
+<section class="searchBox">
+    <i class="bx bx-search" id="searc"></i>
+    <input type="search" id="searchCont">
+</section>
+<main>
+    <button id="showAdminAddUser">Add User Or Edit User</button>
+    <form action="api.php" method="post" id="signForm">
+        <i class="bx bx-x" id="close"></i>
+        <h2>ADMIN ADD USER</h2>
+        <div class="username">
+            <label for="userName">UserName</label><br>
+            <input type="text" id="username" autocomplete="username" placeholder="NAME name..." required>
+        </div>
+        <div class="email">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" autocomplete="email" placeholder="email@email.com" required>
+        </div>
+        <div class="password">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" autocomplete="current-password" placeholder="password" required>
+        </div>
+        <div class="birthDate">
+            <label for="birthDate">BirthDate</label><br>
+            <input type="date" id="birthDate">
+        </div>
+        <div class="location">
+            <label for="location">Location</label><br>
+            <select id="location">
+                <optgroup label="Africa">
+                    <option value="Rwanda" selected>Rwanda</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="SouthAfrica">South Africa</option>
+                </optgroup>
+                <optgroup label="America">
+                    <option value="USA">USA</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Canada">Canada</option>
+                </optgroup>
+                <optgroup label="Asia">
+                    <option value="China">China</option>
+                    <option value="India">India</option>
+                    <option value="SouthKorea">South Korea</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="Japan">Japan</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="corporate">
+            <label for="corporate">Corporate</label><br>
+            <select id="corporate">
+                <option value="Individual">Individual</option>
+                <option value="Campany">Campany</option>
+            </select>
+        </div>
+        <button type="submit" id="submit">Add User</button>
+    </form>
+    <table class="table">
+    <caption>ALL IT.INFRA USERS</caption>
+        <thead>
+            <tr>
+                <th>CHECK</th>
+                <th>ID</th>
+                <th>USERNAME</th>
+                <th>EMAIL</th>
+                <th>PASSWORD</th>
+                <th>BIRTHDATE</th>
+                <th>LOCATION</th>
+                <th>CORPORATE</th>
+                <th>EDIT</th>
+                <th id="delete"></th>
+            </tr>
+        </thead>
+        <tbody id="adminTable"></tbody>
+        <tfoot>
+            <tr>
+                <th colspan="10">ALL USERS</th>
+            </tr>
+        </tfoot>
+    </table>
+</main>
+<div id="pagination"></div>
+    <footer class="footer">
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, autem. Quod et, nemo repudiandae eligendi in enim, cumque vitae maxime dolor a sequi atque pariatur aspernatur ducimus id neque modi!
+        </p>
+        <div class="footerContainer">
+            <fieldset class="about">
+                <legend>Components</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Hardware</a></li>
+                        <li><a class="footerLinks" href="#">Software</a></li>
+                        <li><a class="footerLinks" href="#">Network</a></li>
+                        <li><a class="footerLinks" href="#">Meatware</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            <fieldset class="about">
+                <legend>Types of Infrastructure</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Traditional Infrastructure</a></li>
+                        <li><a class="footerLinks" href="#">Cloud Infrastructure</a></li>
+                        <li><a class="footerLinks" href="#">Hyper Converged Infrastructure</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            <fieldset class="about">
+                <legend>Network configurations</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Block Sites</a></li>
+                        <li><a class="footerLinks" href="#">Add Permission</a></li>
+                        <li><a class="footerLinks" href="#">Remove Permission</a></li>
+                        <li><a class="footerLinks" href="#">Manage Network</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            <fieldset class="about">
+                <legend>Lincessing</legend>
+                <div class="aboutLinks">
+                    <ul class="footerAllLinks">
+                        <li><a class="footerLinks" href="#">Create Lincess</a></li>
+                        <li><a class="footerLinks" href="#">Manage OpenSource</a></li>
+                        <li><a class="footerLinks" href="#">Software Distribution</a></li>
+                        <li><a class="footerLinks" href="#">Domain Name Register</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+            &copy; IT INFRASTRUCTURE
+        </div>
+    </footer>
+</body>
+</html>
