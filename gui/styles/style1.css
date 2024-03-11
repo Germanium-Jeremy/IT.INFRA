@@ -21,10 +21,11 @@
 }
 
 body{
-    background: url(../images/infra2.jpg) no-repeat fixed;
+    background: url(../images/image.gif) no-repeat fixed;
+    background-position: center;
     background-size: cover;
-    backdrop-filter: brightness(20%);
     padding: 1rem;
+    width: 1247px;
     position: relative;
     margin: 0;
     transition: .3s;
@@ -32,12 +33,12 @@ body{
 /*==== HEADER ====*/
 .logo{
     width: 2cm;
-    height: 2.4cm;
+    height: 2cm;
     border: none;
     outline: none;
-    position: fixed;
+    position: absolute;
     left: 1rem;
-    top: 1.6rem;
+    top: 1.3rem;
     cursor: pointer;
     z-index: 12;
 }
@@ -91,7 +92,7 @@ body{
 .logIn{
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: -1rem;
     background: #def;
     padding: 1rem;
     border-radius: 5px;
@@ -517,8 +518,8 @@ h2{
 
 /*====== REVIEWS ======*/
 .wrapper{
-    max-width: 1020px;
-    width: 100%;
+    max-width: 1220px;
+    width: 33cm;
     position: relative;
 }
 .wrapper i{
@@ -543,9 +544,9 @@ h2{
 }
 .wrapper .carousel{
     display: grid;
-    grid-auto-columns: calc((100% / 3) -12px);
+    grid-auto-columns: calc((80% / 3) -42px);
     grid-auto-flow: column;
-    gap: 16px;
+    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -634,6 +635,7 @@ h2{
     color: #333;
     background: #cde;
     margin-top: 4rem;
+    width: 1235px;
 }
 .footer p{
     max-width: 8cm;
